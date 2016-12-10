@@ -13,5 +13,5 @@ public interface IEnemyController {
 	
 	public void executeInput(IMover enemy, Set<ActionName> events);
 	
-	public Set<Projectile> getNewProjectiles();
+	public List<Projectile> getNewProjectiles();
 }

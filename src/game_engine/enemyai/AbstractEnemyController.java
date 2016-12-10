@@ -21,15 +21,15 @@ import game_object.weapon.Projectile;
 public abstract class AbstractEnemyController implements IEnemyController {
 
 	protected Random myRandom;
-	protected Set<Projectile> myProjectiles;
+	protected List<Projectile> myProjectiles;
 
 	public AbstractEnemyController() {
 		myRandom = new Random();
-		myProjectiles = new HashSet<Projectile>();
+		myProjectiles = new ArrayList<Projectile>();
 	}
 
 	public void executeInput(IMover enemy, Set<ActionName> events) {
-		myProjectiles = new HashSet<Projectile>();
+		myProjectiles = new ArrayList<Projectile>();
 		for (ActionName e : events) {
 			if (e == ActionName.JUMP)
 				enemy.jumpUp();
@@ -47,7 +47,7 @@ public abstract class AbstractEnemyController implements IEnemyController {
 		}
 	}
 
-	public Set<Projectile> getNewProjectiles() {
+	public List<Projectile> getNewProjectiles() {
 		return myProjectiles;
 	}
 }

@@ -90,9 +90,9 @@ public class GameEngine_Game implements IGameEngine {
 				IMover enemy = (IMover) s; 
 				Set<ActionName> list = myEnemyController.getActions(enemy, myCurrentLevel.getHeros().get(0));
 				myEnemyController.executeInput(enemy, list);
-				//myCurrentLevel.getProjectiles().addAll(c);
-				Set<Projectile> set = myEnemyController.getNewProjectiles();
-				for (Projectile p : set) {
+
+				List<Projectile> plist = myEnemyController.getNewProjectiles();
+				for (Projectile p : plist) {
 					myCurrentLevel.addSprite(p);
 				}
 			}
