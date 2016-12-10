@@ -1,6 +1,7 @@
 package game_engine.enemyai;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -20,15 +21,15 @@ import game_object.weapon.Projectile;
 public abstract class AbstractEnemyController implements IEnemyController {
 
 	protected Random myRandom;
-	protected List<Projectile> myProjectiles;
+	protected Set<Projectile> myProjectiles;
 
 	public AbstractEnemyController() {
 		myRandom = new Random();
-		myProjectiles = new ArrayList<Projectile>();
+		myProjectiles = new HashSet<Projectile>();
 	}
 
 	public void executeInput(IMover enemy, Set<ActionName> events) {
-		myProjectiles = new ArrayList<Projectile>();
+		myProjectiles = new HashSet<Projectile>();
 		for (ActionName e : events) {
 			if (e == ActionName.JUMP)
 				enemy.jumpUp();
@@ -46,7 +47,7 @@ public abstract class AbstractEnemyController implements IEnemyController {
 		}
 	}
 
-	public List<Projectile> getNewProjectiles() {
+	public Set<Projectile> getNewProjectiles() {
 		return myProjectiles;
 	}
 }
